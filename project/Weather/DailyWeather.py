@@ -1,8 +1,6 @@
 import requests
 import json
-
-#static
-ZIPCODE = '11364'
+from project.config import *
 
 headers = {
     'Content-Type': 'application/json'
