@@ -2,6 +2,7 @@ import smtplib, ssl
 from project.config import *
 from project.Weather.DailyWeather import *
 from project.GoogleSheets.WorkoutBlock import *
+from project.Baseball.MetsGame import *
 
 def sendText(message):
     # Create a secure SSL context
@@ -24,9 +25,9 @@ def sendText(message):
 
 def main():
     weather = getWeather(weather_api_token)
-    dailyWorkout = getDailyWorkout()
-    messages = [getWeather(weather_api_token), dailyWorkout]
-
+    dailyWorkout = getDailyWorkout()    
+    metsGame = getDailyMetsGameDetails()
+    messages = [weather, dailyWorkout, metsGame]
     for message in messages:
         sendText(message)
     
